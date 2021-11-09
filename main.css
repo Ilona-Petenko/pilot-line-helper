@@ -1,0 +1,16 @@
+
+
+.my-row
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 4% 4% 0 4%;
+
+}
+
+.equal-sign
+{
+    font-size: 2em;
+    margin: 0% 4%;
+}
