@@ -9,8 +9,21 @@
 
 }
 
-.equal-sign
+.my-column
 {
-    font-size: 2em;
-    margin: 0% 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.math-sign
+{
+    font-size: 1.5em;
+    margin: 0% 1.5%;
+}
+
+.small-text
+{
+    font-size: 0.8em;
 }
