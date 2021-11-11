@@ -1,3 +1,10 @@
+const infoIcon = document.getElementById('infoIcon')
+infoIcon.onclick = () => {
+    alert ("Application for fermention production calculation\n"
+            + "Developer: Ilona Petenko\n"
+            + "Onsite Trainer: Danyil Somin")
+}
+
 const roundToTwoDecimal = (value) => {
     return Math.round(value * 100) / 100
 }
