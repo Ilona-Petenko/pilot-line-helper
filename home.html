@@ -22,12 +22,12 @@
         <div class="my-row">
                 <div class="form-floating">
                     <input type="number" class="form-control" id="molGrammStartInput" placeholder="gr">
-                    <label for="floatingInput">Меляса поч.</label>
+                    <label for="floatingInput">Меляса поч. г</label>
                 </div>
                 <div class="spacer form-floating"></div>
                 <div class="form-floating">
                     <input type="number" class="form-control" id="molGrammFinalInput" placeholder="gr">
-                    <label for="floatingInput">Меляса кінц.</label>
+                    <label for="floatingInput">Меляса кінц. г</label>
                 </div>
         </div>
         <div class="spacer form-floating"></div>
@@ -42,12 +42,12 @@
         <div class="my-row">
             <div class="form-floating">
                 <input type="number" class="form-control" id="amGrammStartInput" placeholder="gr">
-                <label for="floatingInput">NH₄OH поч.</label>
+                <label for="floatingInput">NH₄OH поч. г</label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="amGrammFinalInput" placeholder="gr">
-                <label for="floatingInput">NH₄OH кінц.</label>
+                <label for="floatingInput">NH₄OH кінц. г</label>
             </div>
         </div>
             <div class="spacer form-floating"></div>
@@ -63,12 +63,12 @@
         <div class="my-row">
             <div class="form-floating">
                 <input type="number" class="form-control" id="paGrammStartInput" placeholder="gr">
-                <label for="floatingInput">H₃PO₄ поч.</label>
+                <label for="floatingInput">H₃PO₄ поч. г</label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="paGrammFinalInput" placeholder="gr">
-                <label for="floatingInput">H₃PO₄ кінц.</label>
+                <label for="floatingInput">H₃PO₄ кінц. г</label>
             </div>
         </div>
             <div class="spacer form-floating"></div>
@@ -77,8 +77,6 @@
                     <input type="number" class="form-control" id="paMlInput" placeholder="Ml" readonly>
                     <label for="floatingMl">H₃PO₄ мл</label>
                 </div>
-
-                <div class="spacer form-floating"></div>
             </div>
         </div>
 
@@ -87,12 +85,12 @@
         <div class="my-row">
             <div class="form-floating">
                 <input type="number" class="form-control" id="naGrammStartInput" placeholder="gr">
-                <label for="floatingInput">HNO₃ поч.</label>
+                <label for="floatingInput">HNO₃ поч. г</label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="naGrammFinalInput" placeholder="gr">
-                <label for="floatingInput">HNO₃ кінц.</label>
+                <label for="floatingInput">HNO₃ кінц. г</label>
             </div>
         </div>
             <div class="spacer form-floating"></div>
@@ -109,18 +107,20 @@
         <div class="my-row"> 
             <div class="form-floating">
                 <input type="number" class="form-control" id="waterMlInput" placeholder="l">
-                <label for="floatingOutput"> <p>Вода</p> </label>
+                <label for="floatingOutput"> <p>Вода мл</p> </label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="ycStartInput" placeholder="gr">
-                <label for="floatingInput">Дріжджі засівні</label>
+                <label for="floatingInput">Засівні др. г</label>
             </div>
         </div>
-             <div class="spacer form-floating"></div>
-            <div class="form-floating">
-                <input type="number" class="form-control" id="volumeMlInput" placeholder="l" readonly>
-                <label for="floatingOutput"> <p>Об'єм</p> </label>
+            <div class="spacer form-floating"></div>
+            <div class="my-row"> 
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="volumeMlInput" placeholder="l" readonly>
+                    <label for="floatingOutput"> <p>Об'єм мл</p> </label>
+                </div>
             </div>
     </div>
 
@@ -129,18 +129,18 @@
         <div class="my-row">
             <div class="form-floating">
                 <input type="number" class="form-control" id="ycGrammInput" placeholder="gr">
-                <label for="floatingInput">Дріжджів в 1л</label>
+                <label for="floatingInput">Дріжджі г/л</label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="ycMoistureInput" placeholder="%">
-                <label for="floatingInput">Вологість</label>
+                <label for="floatingInput">Вологість %</label>
             </div>
         </div>
         <div class="spacer form-floating"></div>
         <div class="form-floating column-item">
             <input type="number" class="form-control" id="asbLiterGrammInput" placeholder="gr/l" readonly>
-            <label for="floatingOutput"> <p>Асб в 1л</p> </label>
+            <label for="floatingOutput"> <p>Асб г/л</p> </label>
         </div>
     </div>
 
@@ -149,18 +149,18 @@
         <div class="my-row">
             <div class="form-floating">
                 <input type="number" class="form-control" id="asbStartGrammInput" placeholder="gr/l">
-                <label for="floatingOutput"> <p>Асб засівних</p> </label>
+                <label for="floatingOutput"> <p>Асб засівних г</p> </label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="asbGrammInput" placeholder="gr" readonly>
-                <label for="floatingInput">Асб</label>
+                <label for="floatingInput">Асб г</label>
             </div>
         </div>
         <div class="spacer form-floating"></div>
         <div class="form-floating column-item">
             <input type="number" class="form-control" id="asbDeltaGrammInput" placeholder="gr/l" readonly>
-            <label for="floatingOutput"> <p>Дельта Асб</p> </label>
+            <label for="floatingOutput"> <p>Дельта Асб г</p> </label>
         </div>
     </div>
 
@@ -169,19 +169,19 @@
         <div class="my-row">
             <div class="form-floating">
                 <input type="number" class="form-control" id="nInAmInput" placeholder="gr">
-                <label for="floatingInput">N in am</label>
+                <label for="floatingInput">N in am %</label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="posphateAngInput" placeholder="l" readonly>
-                <label for="floatingOutput">P₂O₅</label>
+                <label for="floatingOutput">P₂O₅ %</label>
             </div>
         </div>
         <div class="spacer form-floating"></div>
         <div class="my-row">
             <div class="form-floating">
                 <input type="number" class="form-control" id="nitrogenInput" placeholder="gr/l" readonly>
-                <label for="floatingOutput">N</label>
+                <label for="floatingOutput">N мг</label>
             </div>
         </div>
     </div>
@@ -193,14 +193,13 @@
         <div class="my-row"> 
             <div class="form-floating">
                 <input type="number" class="form-control" id="tfsInput" placeholder="l" readonly>
-                <label for="floatingOutput"> <p>TFS</p></label>
+                <label for="floatingOutput"> <p>TFS г</p></label>
             </div>
             <div class="spacer form-floating"></div>
             <div class="form-floating">
                 <input type="number" class="form-control" id="productionInput" placeholder="l" readonly>
-                <label for="floatingOutput"> <p>Продуктивність</p> </label>
+                <label for="floatingOutput"> <p>Вихід %</p> </label>
             </div>
-            <div class="spacer form-floating"></div>
         </div>
     </div>
 </div>
