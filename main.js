@@ -3,6 +3,7 @@ const naGrammInMl = 1.5
 const tfsCoefficientInput = 0.34
 const molGrammInMl = 1.18
 const amGrammInMl = 0.9
+
 const infoIcon = document.getElementById('infoIcon')
 const molGrammStartInput = document.getElementById('molGrammStartInput')
 const molGrammFinalInput = document.getElementById('molGrammFinalInput')
@@ -29,6 +30,7 @@ const volumeMlInput = document.getElementById('volumeMlInput')
 const productionInput = document.getElementById('productionInput')
 const nitrogenInput = document.getElementById('nitrogenInput')
 const nInAmInput = document.getElementById('nInAmInput')
+const ycStartInput = document.getElementById('ycStartInput')
 
 infoIcon.onclick = () => {
     alert ("Application for fermention production calculation\n"
@@ -47,8 +49,15 @@ const calculatePosphateAngInput = () => {
     posphateAngInput.value = roundToTwoDecimal(result)
 }
 
+const calculateProductionInput = () => {
+    const result =  (tfsInput.value
+                    / asbDeltaGrammInput.value)
+                    * 100
+    productionInput.value = roundToTwoDecimal(result)
+}
+
 molGrammFinalInput.oninput  =  () => {
-    if (molGrammStartInput.value > 0) {
+    if (molGrammStartInput.value) {
         let result = (molGrammStartInput.value 
                         - molGrammFinalInput.value)
                         / molGrammInMl
@@ -60,11 +69,13 @@ molGrammFinalInput.oninput  =  () => {
         
         result = molDelta * tfsCoefficientInput
         tfsInput.value = roundToTwoDecimal(result)
+
+        calculateProductionInput ()
     }
 }
 
 molGrammStartInput.oninput  =  () => {
-    if (molGrammFinalInput.value > 0) {
+    if (molGrammFinalInput.value) {
         const result = (molGrammStartInput.value 
                         - molGrammFinalInput.value)
                         / molGrammInMl
@@ -72,14 +83,9 @@ molGrammStartInput.oninput  =  () => {
         molMlInput.value = roundToTwoDecimal(result)
     }
 } 
-/*
-molMlInput.oninput = () => {
-    const result = molMlInput.value * molGrammInMl
-    molGrammInput.value = roundToTwoDecimal(result)
-}
-*/
+
 amGrammFinalInput.oninput  =  () => {
-    if (amGrammStartInput.value > 0) {
+    if (amGrammStartInput.value) {
         const result = (amGrammStartInput.value 
                         - amGrammFinalInput.value)
                         / amGrammInMl
@@ -88,7 +94,7 @@ amGrammFinalInput.oninput  =  () => {
     }
 }
 amGrammStartInput.oninput  =  () => {
-    if (amGrammFinalInput.value > 0) {
+    if (amGrammFinalInput.value) {
         const result = (amGrammStartInput.value 
                         - amGrammFinalInput.value)
                         / amGrammInMl
@@ -96,16 +102,9 @@ amGrammStartInput.oninput  =  () => {
         amMlInput.value = roundToTwoDecimal(result)
     }
 }
-/*
-amMlInput.oninput = () => {
-    const result = amMlInput.value * amGrammInMl
-    amGrammInput.value = roundToTwoDecimal(result)
-}
-*/
-
 
 paGrammFinalInput.oninput  =  () => {
-    if (paGrammStartInput.value > 0) {
+    if (paGrammStartInput.value) {
         const result = (paGrammStartInput.value
                         - paGrammFinalInput.value)
                         / paGrammInMl
@@ -115,7 +114,7 @@ paGrammFinalInput.oninput  =  () => {
 }
 
 paGrammStartInput.oninput  =  () => {
-    if (paGrammFinalInput.value > 0) {
+    if (paGrammFinalInput.value) {
         const result = (paGrammStartInput.value
                         - paGrammFinalInput.value)
                         / paGrammInMl
@@ -124,29 +123,8 @@ paGrammStartInput.oninput  =  () => {
     }
 }
 
-/*
-molGrammFinalInput.oninput  =  () => {
-    if (molGrammStartInput.value > 0) {
-        let result = (molGrammStartInput.value 
-                        - molGrammFinalInput.value)
-                        / molGrammInMl
-
-        molMlInput.value = roundToTwoDecimal(result)
-
-        let molDelta = molGrammStartInput.value - 
-                    molGrammFinalInput.value
-        
-        result = molDelta * tfsCoefficientInput
-        tfsInput.value = roundToTwoDecimal(result)
-    }
-}
-paMlInput.oninput = () => {
-    const result = paMlInput.value * paGrammInMl
-    paGrammInput.value = roundToTwoDecimal(result)
-}
-*/
 naGrammFinalInput.oninput  =  () => {
-    if (naGrammStartInput.value > 0) {
+    if (naGrammStartInput.value) {
         const result = (naGrammStartInput.value 
                         - naGrammFinalInput.value)
                         / naGrammInMl
@@ -156,7 +134,7 @@ naGrammFinalInput.oninput  =  () => {
 }
 
 naGrammStartInput.oninput  =  () => {
-    if (naGrammStartInput.value > 0) {
+    if (naGrammStartInput.value) {
         const result = (naGrammStartInput.value 
                         - naGrammFinalInput.value)
                         / naGrammInMl
@@ -164,25 +142,9 @@ naGrammStartInput.oninput  =  () => {
         naMlInput.value = roundToTwoDecimal(result)
     }
 }
-/*
-naMlInput.oninput = () => {
-    const result = naMlInput.value * naGrammInMl
-    naGrammInput.value = roundToTwoDecimal(result)
-}
-*/
-ycGrammInput.oninput  =  () => {
-    if (ycMoistureInput.value > 0) {
-        const result = (ycGrammInput.value
-                        * (100 - ycMoistureInput.value))
-                        / 100
-
-        asbLiterGrammInput.value = roundToTwoDecimal(result)
-        
-    }
-}
 
 ycMoistureInput.oninput  =  () => {
-    if (ycGrammInput.value > 0) {
+    if (ycGrammInput.value) {
         const result = (ycGrammInput.value 
                         * (100 - ycMoistureInput.value)) 
                         / 100
@@ -191,12 +153,13 @@ ycMoistureInput.oninput  =  () => {
     }
 }
 
-waterMlInput.oninput = () => {
-    const result = parseFloat(waterMlInput.value) 
-                 + parseFloat(molMlInput.value) 
-                 + parseFloat(amMlInput.value)
-                 + parseFloat(paMlInput.value)
-                 + parseFloat(naMlInput.value) 
+ycStartInput.oninput = () => {
+    const result = waterMlInput.value 
+                 + molMlInput.value 
+                 + amMlInput.value
+                 + paMlInput.value
+                 + naMlInput.value
+                 + ycStartInput.value
                  + 36
 
     volumeMlInput.value = roundToTwoDecimal(result)
@@ -207,10 +170,25 @@ asbStartGrammInput.oninput = () => {
                  * (volumeMlInput.value / 1000)
     asbGrammInput.value = roundToTwoDecimal(result)
 
-    calculatePosphateAngInput()
-
     result = asbGrammInput.value - asbStartGrammInput.value
     asbDeltaGrammInput.value = roundToTwoDecimal(result)
 
     calculatePosphateAngInput()
+    calculateProductionInput ()
+}
+
+nInAmInput.oninput = () => {
+    if (asbDeltaGrammInput.value) {
+    const result = ((amGrammStartInput.value 
+                    - amGrammFinalInput.value)
+                    * asbDeltaGrammInput.value)
+                    / 100    
+
+    nitrogenInput.value = roundToTwoDecimal(result)
+    }
+}
+
+
+const update = () => {
+    
 }
