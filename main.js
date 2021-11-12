@@ -33,7 +33,7 @@ const nInAmInput = document.getElementById('nInAmInput')
 const ycStartInput = document.getElementById('ycStartInput')
 
 infoIcon.onclick = () => {
-    alert ("Application for fermention production calculation\n"
+    alert ("Application for fermention production calculation\n\n"
             + "Developer: Ilona Petenko\n"
             + "Onsite Consultant: Danyil Somin")
 }
