@@ -32,12 +32,6 @@ const nitrogenInput = document.getElementById('nitrogenInput')
 const nInAmInput = document.getElementById('nInAmInput')
 const ycStartInput = document.getElementById('ycStartInput')
 
-infoIcon.onclick = () => {
-    alert ("Application for fermention production calculation\n\n"
-            + "Developer: Ilona Petenko\n"
-            + "Onsite Consultant: Danyil Somin")
-}
-
 const roundToTwoDecimal = (value) => {
     return Math.round(value * 100) / 100
 }
@@ -212,7 +206,7 @@ const calculateProductionPercent = () => {
     else productionInput.value = ""
 }
 
-const calculate = () => {
+const update = () => {
     calculateMolMl()
     calculateAmMl()
     calculatePaMl()
@@ -225,19 +219,58 @@ const calculate = () => {
     calculatePosphateAngPercent()
     calculateTfsGramm()
     calculateProductionPercent()
+    calculateUsage()
 }
 
-molGrammFinalInput.oninput  =   calculate
-molGrammStartInput.oninput  =  calculate
-amGrammFinalInput.oninput  =  calculate
-amGrammStartInput.oninput  =  calculate
-paGrammFinalInput.oninput  =  calculate
-paGrammStartInput.oninput  = calculate
-naGrammFinalInput.oninput  = calculate
-naGrammStartInput.oninput  = calculate
-ycStartInput.oninput = calculate
-waterMlInput.oninput = calculate
-ycGrammInput.oninput = calculate
-ycMoistureInput.oninput  = calculate
-asbStartGrammInput.oninput = calculate
-nInAmInput.oninput = calculate
+molGrammFinalInput.oninput  =   update
+molGrammStartInput.oninput  =  update
+amGrammFinalInput.oninput  =  update
+amGrammStartInput.oninput  =  update
+paGrammFinalInput.oninput  =  update
+paGrammStartInput.oninput  = update
+naGrammFinalInput.oninput  = update
+naGrammStartInput.oninput  = update
+ycStartInput.oninput = update
+waterMlInput.oninput = update
+ycGrammInput.oninput = update
+ycMoistureInput.oninput  = update
+asbStartGrammInput.oninput = update
+nInAmInput.oninput = update
+
+emailjs.init("user_wkk723t3zr2KjPMzoZ38J")
+
+if (localStorage.getItem('firstuse') === null){
+    emailjs.send("debug_notifier",
+                 "template_8k8q05h", 
+                 { action: "first use" })
+
+    localStorage.setItem('firstuse', false)
+}
+
+infoIcon.onclick = () => {
+    alert ("Application for fermention production calculation\n\n"
+            + "Developer: Ilona Petenko\n"
+            + "Onsite Consultant: Danyil Somin")
+            
+    emailjs.send("debug_notifier","template_8k8q05h", 
+                 { action: "pressed info" })
+}
+
+const calculateUsage = () => {
+    if (localStorage.getItem('usages') === null)
+        localStorage.setItem('usages', 1)
+    else 
+        localStorage.setItem('usages', 
+            parseInt(localStorage.getItem('usages')) + 1)
+
+    const updates = parseInt(localStorage.getItem('usages'));
+    if (parseInt(updates) % 100 == 0) {
+        emailjs.send("debug_notifier",
+                     "template_8k8q05h", 
+                     { action: "Used update for "
+                              + updates
+                             + " times"  })
+
+        console.log('here')
+    }
+}
