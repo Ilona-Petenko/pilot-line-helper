@@ -1,4 +1,4 @@
-const paGrammInMl = 1.5
+const paGrammInMl = 1.51
 const naGrammInMl = 1.5
 const tfsCoefficient = 0.34
 const molGrammInMl = 1.18
@@ -102,7 +102,7 @@ const calculateVolume = () => {
                  + parseFloat(paMlInput.value)
                  + parseFloat(naMlInput.value)
                  + parseFloat(ycStartInput.value)
-                 + 36
+                 + 45
 
     result = roundToTwoDecimal(result)
 
@@ -128,7 +128,7 @@ const calculateAsbGramm = () => {
     if (!asbLiterGrammInput.value || !volumeMlInput.value)
         return asbGrammInput.value = ""
 
-    let result = volumeMlInput.value / asbLiterGrammInput.value 
+    let result = (asbLiterGrammInput.value / 1000) * volumeMlInput.value
 
     result = roundToTwoDecimal(result)
 
@@ -183,10 +183,7 @@ const calculateTfsGramm = () => {
     if (!molGrammStartInput.value || !molGrammFinalInput.value)
         return tfsInput.value = ""
 
-    let molDelta = molGrammStartInput.value - 
-                molGrammFinalInput.value
-    
-    let result = molDelta * tfsCoefficient
+    let result = molMlInput.value * tfsCoefficient
     
     result = roundToTwoDecimal(result)
     
