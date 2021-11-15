@@ -1,5 +1,5 @@
 const paGrammInMl = 1.51
-const naGrammInMl = 1.5
+const naGrammInMl = 1.51
 const tfsCoefficient = 0.34
 const molGrammInMl = 1.18
 const amGrammInMl = 0.9
@@ -7,17 +7,21 @@ const amGrammInMl = 0.9
 const infoIcon = document.getElementById('infoIcon')
 const molGrammStartInput = document.getElementById('molGrammStartInput')
 const molGrammFinalInput = document.getElementById('molGrammFinalInput')
+const molGrammInput = document.getElementById('molGrammInput')
 const molMlInput = document.getElementById('molMlInput')
 const tfsInput = document.getElementById('tfsInput')
 const amGrammStartInput = document.getElementById('amGrammStartInput')
 const amGrammFinalInput = document.getElementById('amGrammFinalInput')
+const amGrammInput = document.getElementById('amGrammInput')
 const amMlInput = document.getElementById('amMlInput')
 const paGrammStartInput = document.getElementById('paGrammStartInput')
 const paGrammFinalInput = document.getElementById('paGrammFinalInput')
+const paGrammInput = document.getElementById('paGrammInput')
 const paMlInput = document.getElementById('paMlInput')
 const posphateAngInput = document.getElementById('posphateAngInput')
 const naGrammStartInput = document.getElementById('naGrammStartInput')
 const naGrammFinalInput = document.getElementById('naGrammFinalInput')
+const naGrammInput = document.getElementById('naGrammInput')
 const naMlInput = document.getElementById('naMlInput')
 const ycGrammInput = document.getElementById('ycGrammInput')
 const ycMoistureInput = document.getElementById('ycMoistureInput')
@@ -36,12 +40,24 @@ const roundToTwoDecimal = (value) => {
     return Math.round(value * 100) / 100
 }
 
+const calculateMolGr = () => {
+    if (!molGrammStartInput.value || !molGrammFinalInput.value)
+        return molMlInput.value = ""
+        let result = molGrammStartInput.value 
+            - molGrammFinalInput.value
+        
+    
+        result = roundToTwoDecimal(result)
+    
+        if (result) molGrammInput.value = result
+        else molGrammInput.value = ""
+}  
+
 const calculateMolMl = () => {
     if (!molGrammStartInput.value || !molGrammFinalInput.value)
         return molMlInput.value = ""
 
-    let result = (molGrammStartInput.value 
-        - molGrammFinalInput.value)
+    let result = molGrammInput.value
         / molGrammInMl
 
     result = roundToTwoDecimal(result)
@@ -50,13 +66,25 @@ const calculateMolMl = () => {
     else molMlInput.value = ""
 }  
 
+const calculateAmGr = () => {
+    if (!amGrammStartInput.value || !amGrammFinalInput.value)
+        return amGrammInput.value = ""
+        let result = amGrammStartInput.value 
+            - amGrammFinalInput.value
+        
+    
+        result = roundToTwoDecimal(result)
+    
+        if (result) amGrammInput.value = result
+        else amGrammInput.value = ""
+}  
+
 const calculateAmMl = () => {
     if (!amGrammStartInput.value || !amGrammFinalInput.value)
-        return amMlInput.value = ""
+        return amGrammInput.value = ""
 
-    let result = (amGrammStartInput.value 
-                    - amGrammFinalInput.value)
-                    / amGrammInMl
+    let result = amGrammInput.value
+                 / amGrammInMl
 
     result = roundToTwoDecimal(result)
 
@@ -64,13 +92,25 @@ const calculateAmMl = () => {
     else amMlInput.value = ""
 }
 
+const calculatePaGr = () => {
+    if (!paGrammStartInput.value || !paGrammFinalInput.value)
+        return paGrammInput.value = ""
+        let result = paGrammStartInput.value 
+            - paGrammFinalInput.value
+        
+    
+        result = roundToTwoDecimal(result)
+    
+        if (result) paGrammInput.value = result
+        else paGrammInput.value = ""
+}  
+
 const calculatePaMl = () => {
     if (!paGrammStartInput.value || !paGrammFinalInput.value)
         return paMlInput.value = ""
 
-    let result = (paGrammStartInput.value
-                    - paGrammFinalInput.value)
-                    / paGrammInMl
+    let result = paGrammInput.value
+                / paGrammInMl
 
     result = roundToTwoDecimal(result)
 
@@ -78,13 +118,25 @@ const calculatePaMl = () => {
     else paMlInput.value = ""
 }
 
+const calculateNaGr = () => {
+    if (!naGrammStartInput.value || !naGrammFinalInput.value)
+        return naGrammInput.value = ""
+        let result = naGrammStartInput.value 
+            - naGrammFinalInput.value
+        
+    
+        result = roundToTwoDecimal(result)
+    
+        if (result) naGrammInput.value = result
+        else naGrammInput.value = ""
+}  
+
 const calculateNaMl = () => {
     if (!naGrammStartInput.value || !naGrammFinalInput.value)
         return naMlInput.value = ""
 
-    let result = (naGrammStartInput.value 
-                    - naGrammFinalInput.value)
-                    / naGrammInMl
+    let result = naGrammInput.value
+                / naGrammInMl
 
     result = roundToTwoDecimal(result)
 
@@ -204,9 +256,13 @@ const calculateProductionPercent = () => {
 }
 
 const update = () => {
+    calculateMolGr ()
     calculateMolMl()
+    calculateAmGr ()
     calculateAmMl()
+    calculatePaGr ()
     calculatePaMl()
+    calculateNaGr ()
     calculateNaMl()
     calculateVolume()
     calculateYcIn1Liter()
