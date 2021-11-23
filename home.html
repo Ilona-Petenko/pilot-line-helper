@@ -20,13 +20,22 @@
     style="position: fixed; top: 2px; right: 2px; z-index: 100; opacity: 0.5;">
 
     <div class="my-column">
-        <div class="form-floating">
-            <input type="number" class="form-control" id="Number" placeholder="№">
-            <label for="floatingInput">Номер ферментації</label>
-        </div> 
+        <div class="my-row">
+            <div class="form-floating">
+                <input type="number" class="form-control" id="number" placeholder="№">
+                <label for="floatingInput">Номер ферментації</label>
+            </div> 
+            <div class="spacer form-floating"></div>
+            <div class="form-floating">
+                <input type="number" class="form-control" id="date" placeholder="gr">
+                <label for="floatingInput">Дата ферментації</label>
+            </div>
+        
+        </div>
+
     </div>
-    <div class="spacer form-floating"></div>
-    <div class="my-column">
+    <div class="my-column"> 
+        <hr style="width:100%;text-align:left;margin-left:0">
         <div class="my-row">
                 <div class="form-floating">
                     <input type="number" class="form-control" id="molGrammStartInput" placeholder="gr">
